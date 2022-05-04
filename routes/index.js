@@ -1,4 +1,6 @@
 const express = require("express");
+const PsicologosController = require("../controllers/psicologos.controller")
+const PacientesController = require("../controllers/pacientes.controller")
 
 const routes = express.Router();
 
@@ -10,10 +12,11 @@ const routes = express.Router();
 routes.post('/login',PsicologosController.exemplo);
 
 // Rotas Psicologos
-routes.get('/psicologos/:id',PsicologosController.exemplo2);
-routes.post('/psicologos',PsicologosController.exemplo3);
-routes.put('/psicologos/:id',PsicologosController.exemplo4);
-routes.delete('/psicologos/:id',PsicologosController.exemplo5);
+routes.get('/psicologos',PsicologosController.listarPsicologos);
+routes.get('/psicologos/:id',PsicologosController.listarPsicologoId);
+routes.post('/psicologos',PsicologosController.cadastrarPsicologo);
+routes.put('/psicologos/:id',PsicologosController.atualizarPsicologo);
+routes.delete('/psicologos/:id',PsicologosController.deletarPsicologo);
 
 // Rotas Pacientes
 routes.get('/pacientes/:id',PacientesController.exemplo2);

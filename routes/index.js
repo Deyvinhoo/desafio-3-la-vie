@@ -1,7 +1,7 @@
 const express = require("express");
 const PsicologosController = require("../controllers/psicologos.controller")
 const PacientesController = require("../controllers/pacientes.controller")
-
+const cadastrarPsicologoValidation = require('../validations/psicologos/cadastrarPsicologoValidation');
 const routes = express.Router();
 
 // Importar os controllers do porjeto exemplo linha abaixo
@@ -9,12 +9,12 @@ const routes = express.Router();
 
 
 // Rotas Login
-routes.post('/login',PsicologosController.exemplo);
+// routes.post('/login',PsicologosController.exemplo);
 
 // Rotas Psicologos
 routes.get('/psicologos',PsicologosController.listarPsicologos);
 routes.get('/psicologos/:id',PsicologosController.listarPsicologoId);
-routes.post('/psicologos/cadastro',PsicologosController.cadastrarPsicologo);
+routes.post('/psicologos/cadastro',cadastrarPsicologoValidation ,PsicologosController.cadastrarPsicologo);
 routes.put('/psicologos/:id/atualizar',PsicologosController.atualizarPsicologo);
 routes.delete('/psicologos/:id/deletar',PsicologosController.deletarPsicologo);
 
@@ -26,8 +26,8 @@ routes.put('/pacientes/:id/atualizar',PacientesController.atualizarPaciente);
 routes.delete('/pacientes/:id/deletar',PacientesController.deletarPaciente);
 
 // Rotas Atendimentos
-routes.get('/atendimentos/:id',AtendimentosController.exemplo2);
-routes.post('/atendimentos',AtendimentosController.exemplo3);
+// routes.get('/atendimentos/:id',AtendimentosController.exemplo2);
+// routes.post('/atendimentos',AtendimentosController.exemplo3);
 
 
 module.exports = routes;

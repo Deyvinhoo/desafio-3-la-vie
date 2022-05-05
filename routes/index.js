@@ -2,6 +2,9 @@ const express = require("express");
 const PsicologosController = require("../controllers/psicologos.controller")
 const PacientesController = require("../controllers/pacientes.controller")
 const cadastrarPsicologoValidation = require('../validations/psicologos/cadastrarPsicologoValidation');
+const AuthController = require("../controllers/auth.controller");
+const auth = require('../middleware/auth');
+
 const routes = express.Router();
 
 // Importar os controllers do porjeto exemplo linha abaixo
@@ -9,7 +12,7 @@ const routes = express.Router();
 
 
 // Rotas Login
-// routes.post('/login',PsicologosController.exemplo);
+routes.post('/login',AuthController.login);
 
 // Rotas Psicologos
 routes.get('/psicologos',PsicologosController.listarPsicologos);

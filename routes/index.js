@@ -14,15 +14,16 @@ routes.post('/login',PsicologosController.exemplo);
 // Rotas Psicologos
 routes.get('/psicologos',PsicologosController.listarPsicologos);
 routes.get('/psicologos/:id',PsicologosController.listarPsicologoId);
-routes.post('/psicologos',PsicologosController.cadastrarPsicologo);
-routes.put('/psicologos/:id',PsicologosController.atualizarPsicologo);
-routes.delete('/psicologos/:id',PsicologosController.deletarPsicologo);
+routes.post('/psicologos/cadastro',PsicologosController.cadastrarPsicologo);
+routes.put('/psicologos/:id/atualizar',PsicologosController.atualizarPsicologo);
+routes.delete('/psicologos/:id/deletar',PsicologosController.deletarPsicologo);
 
 // Rotas Pacientes
-routes.get('/pacientes/:id',PacientesController.exemplo2);
-routes.post('/pacientes',PacientesController.exemplo3);
-routes.put('/pacientes/:id',PacientesController.exemplo4);
-routes.delete('/pacientes/:id',PacientesController.exemplo5);
+routes.get('/pacientes/',PacientesController.listarPacientes);
+routes.get('/pacientes/:id',PacientesController.listarPacienteId);
+routes.post('/pacientes/cadastrar',PacientesController.cadastrarPaciente);
+routes.put('/pacientes/:id/atualizar',PacientesController.atualizarPaciente);
+routes.delete('/pacientes/:id/deletar',PacientesController.deletarPaciente);
 
 // Rotas Atendimentos
 routes.get('/atendimentos/:id',AtendimentosController.exemplo2);

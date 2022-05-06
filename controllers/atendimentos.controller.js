@@ -1,4 +1,5 @@
 const Atendimentos= require('../models/atendimentos');
+const { Op } = require('sequelize');
 
 const atendimentosController = {
     async cadastrarAtendimento(req, res) {

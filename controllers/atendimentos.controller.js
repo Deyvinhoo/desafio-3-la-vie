@@ -5,7 +5,8 @@ const { Op } = require('sequelize');
 const atendimentosController = {
     async cadastrarAtendimento(req, res) {
         try {
-            const { data_atendimento, observacao, pacientes_id, psicologos_id1 } = req.body;
+            const { data_atendimento, observacao, pacientes_id } = req.body;
+            const psicologos_id1 = req.auth.id;
             const novoAtendimento = await Atendimentos.create({
                 data_atendimento,
                 observacao,

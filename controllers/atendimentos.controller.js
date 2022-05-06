@@ -1,15 +1,25 @@
-// Importar o model da tabela Atendimento. Exemplo abaixo
-// const Person = require('../models/Person');
+const { atendimentos, pacientes, psicologos } = require('../models/');
 
-const { Op } = require('sequelize');
+const atendimentosController = {
+    async cadastrarAtendimento(req, res) {
+        try {
+            const { data_atendimento, observacao, paciente_id, psicologos_id1 } = req.body;
+            const novoAtendimento = await Atendimentos.create({
+                data_atendimento,
+                observacao,
+                paciente_id,
+                psicologos_id,
 
-const AtendimentoController = {
-    // Listar os métodos deste controller aqui
-    // exemplo de sintaxe
-    // async nomeMetodo(req, res){
+            });
 
-    // }
+            
+            return res.status(201).json(novoAtendimento)
+
+        } catch (error) {
+            return res.status(400).json('Falha ao cadastrar atendimento');
+        }
+    }, 
     
 };
 
-module.exports = AtendimentoController;
+module.exports = atendimentosController;

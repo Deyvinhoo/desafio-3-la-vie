@@ -33,6 +33,7 @@ routes.delete('/pacientes/:id/deletar',PacientesController.deletarPaciente);
 // Rotas Atendimentos
 // routes.get('/atendimentos/:id',AtendimentosController.exemplo2);
 routes.post('/atendimentos/cadastro', atendimentosController.cadastrarAtendimento )
-
+routes.get('/atendimentos', atendimentosController.buscarAtendimento)
+routes.get('/atendimentos/:id', atendimentosController.buscarAtendimentoId)
 
 module.exports = routes;

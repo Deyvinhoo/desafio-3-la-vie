@@ -1,4 +1,5 @@
-const Atendimentos= require('../models/atendimentos');
+const {Atendimentos, Pacientes, Psicologos} = require("../models")
+
 const { Op } = require('sequelize');
 
 const atendimentosController = {
@@ -36,10 +37,7 @@ const atendimentosController = {
     },
     async buscarAtendimento(req, res) {
         try {
-            const atendimentos = await Atendimentos.findAll({
-                include: [pacientes, psicologos]
-                
-            });
+            const atendimentos = await Atendimentos.findAll();
             res.json(atendimentos);
         } catch (error) {
             console.error('Erro de busca');
@@ -49,9 +47,7 @@ const atendimentosController = {
     async buscarAtendimentoId(req, res) {
         try {
             const { id } = req.params;
-            const atendimentos = await Atendimentos.findByPk(id,{
-                include: [pacientes, psicologos]
-            });
+            const atendimentos = await Atendimentos.findByPk(id);
             if (atendimentos == null) {
                 return res.status(404).json('Id não encontrado');
             }

@@ -9,15 +9,15 @@ const Atendimentos = db.define(
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            field: "ID"
+            field: "id"
         },
         data_atendimento: {
             type: DataTypes.DATE,
-            field: "Data"
+            field: "data_atendimento"
         },
         observacao: {
             type: DataTypes.STRING,
-            field: "Observação"
+            field: "observacao"
         },
         psicologos_id1: {
             type: DataTypes.INTEGER,

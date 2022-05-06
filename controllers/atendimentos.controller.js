@@ -1,15 +1,15 @@
-const { atendimentos, pacientes, psicologos } = require('../models/');
+const Atendimentos= require('../models/atendimentos');
 
 const atendimentosController = {
     async cadastrarAtendimento(req, res) {
         try {
-            const { data_atendimento, observacao, paciente_id, psicologos_id1 } = req.body;
-            const novoAtendimento = await atendimentos.create({
+            const { data_atendimento, observacao, pacientes_id, psicologos_id1 } = req.body;
+            const novoAtendimento = await Atendimentos.create({
                 data_atendimento,
                 observacao,
-                paciente_id,
                 psicologos_id1,
-
+                pacientes_id,
+    
             });
             
             return res.status(201).json(novoAtendimento)

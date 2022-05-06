@@ -5,6 +5,7 @@ const cadastrarPsicologoValidation = require('../validations/psicologos/cadastra
 const cadastrarPacienteValidation = require('../validations/pacientes/cadastrarPacienteValidation');
 const AuthController = require("../controllers/auth.controller");
 const auth = require('../middleware/auth');
+const atendimentosController = require("../controllers/atendimentos.controller")
 
 const routes = express.Router();
 
@@ -31,9 +32,7 @@ routes.delete('/pacientes/:id/deletar',PacientesController.deletarPaciente);
 
 // Rotas Atendimentos
 // routes.get('/atendimentos/:id',AtendimentosController.exemplo2);
-routes.post('/atendimentos', auth ,(req, res)=> {
-    res.json(req.auth);
-});
+routes.post('/atendimentos/cadastro', atendimentosController.cadastrarAtendimento )
 
 
 module.exports = routes;
